@@ -6,7 +6,7 @@
 /*   By: Yoshihiro Kosaka <ykosaka@student.42tok    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 15:04:04 by ykosaka           #+#    #+#             */
-/*   Updated: 2023/01/19 08:01:05 by Yoshihiro K      ###   ########.fr       */
+/*   Updated: 2023/03/26 22:40:27 by Yoshihiro K      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ t_rsrc	*soph_setvar_rsrc(int n_thd)
 		return (NULL);
 	states = soph_setvar_rsrc_state(n_thd);
 	if (states == NULL)
+	{
+		free(rsrc);
 		return (NULL);
+	}
 	mtx = soph_mutex_init(n_thd, NULL, rsrc);
 	if (mtx == NULL)
 		return (NULL);
